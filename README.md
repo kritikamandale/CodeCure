@@ -126,7 +126,11 @@ streamlit run app.py
 
 ## 📸 Screenshots
 
-(Add dashboard + map screenshots here)
+<img width="1914" height="844" alt="image" src="https://github.com/user-attachments/assets/9906a5c3-d66f-4116-8b27-140301254fb1" />
+<img width="1919" height="777" alt="image" src="https://github.com/user-attachments/assets/51266a54-916c-4848-b214-63abfe5acbe5" />
+<img width="1908" height="832" alt="image" src="https://github.com/user-attachments/assets/ae644174-6d02-436d-b472-59da8dcabfa5" />
+
+
 
 ---
 
