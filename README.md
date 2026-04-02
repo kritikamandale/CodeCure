@@ -120,7 +120,7 @@ streamlit run app.py
 
 ## 🌐 Live Demo
 
-👉 https://your-app.streamlit.app
+👉 https://codecuree.streamlit.app
 
 ---
 
@@ -172,6 +172,7 @@ This project goes beyond prediction by providing **actionable insights** and **b
 ## 👥 Team
 
 * Kritika Mandale
+* Shreya Shande
 
 ---
 
