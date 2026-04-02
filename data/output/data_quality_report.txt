@@ -1,0 +1,77 @@
+╔══════════════════════════════════════════════════════════════╗
+║          CODECURE DATA PIPELINE — QUALITY REPORT            ║
+╚══════════════════════════════════════════════════════════════╝
+
+Generated: 2026-04-01T23:50:59.660475
+Total rows: 5,715
+Total columns: 52
+Countries: 5
+Date range: 2020-01-22 00:00:00 → 2023-03-09 00:00:00
+Memory usage: 1.6 MB
+
+── Column Summary ──
+  country (object): 0 nulls (0.0%)  unique=5
+  date (datetime64[ns]): 0 nulls (0.0%)  unique=1143
+  confirmed (int32): 0 nulls (0.0%)  min=24726.00, max=14000510.00, mean=10505271.20
+  deaths (int32): 0 nulls (0.0%)  min=276.00, max=344971.00, mean=185806.73
+  recovered (int32): 0 nulls (0.0%)  min=21403.00, max=13231482.00, mean=9618545.66
+  daily_new_cases (float32): 0 nulls (0.0%)  min=0.00, max=76414.00, mean=12227.94
+  daily_new_deaths (float32): 0 nulls (0.0%)  min=0.00, max=1883.00, mean=216.28
+  daily_new_recovered (float32): 0 nulls (0.0%)  min=0.00, max=72217.00, mean=11195.81
+  cases_7day_avg (float32): 0 nulls (0.0%)  min=0.00, max=76354.29, mean=12229.96
+  deaths_7day_avg (float32): 0 nulls (0.0%)  min=0.00, max=1881.43, mean=216.31
+  active_cases (int32): 0 nulls (0.0%)  min=926.00, max=1697984.00, mean=700918.81
+  case_fatality_rate (float32): 0 nulls (0.0%)  min=0.01, max=0.02, mean=0.02
+  total_vaccinations (float32): 0 nulls (0.0%)  min=225.00, max=37137024.00, mean=12150033.00
+  people_vaccinated (float32): 0 nulls (0.0%)  min=135.00, max=22282212.00, mean=7290020.00
+  people_fully_vaccinated (float32): 0 nulls (0.0%)  min=23002.00, max=14854809.00, mean=4866332.50
+  total_boosters (float32): 0 nulls (0.0%)  min=760860.00, max=5570553.00, mean=2111855.00
+  new_vaccinations_smoothed (float32): 0 nulls (0.0%)  min=225.00, max=50786.00, mean=32552.25
+  total_tests (int32): 0 nulls (0.0%)  min=4965.00, max=52186248.00, mean=23916350.20
+  new_tests (int32): 0 nulls (0.0%)  min=4819.00, max=50778.00, mean=45647.55
+  new_tests_smoothed (int32): 0 nulls (0.0%)  min=4819.00, max=50778.00, mean=45647.55
+  total_tests_per_thousand (float32): 0 nulls (0.0%)  min=1.50, max=15814.01, mean=7247.38
+  new_tests_per_thousand (float32): 0 nulls (0.0%)  min=0.01, max=0.15, mean=0.14
+  positive_rate (float32): 0 nulls (0.0%)  min=0.00, max=0.52, mean=0.09
+  tests_per_case (float32): 0 nulls (0.0%)  min=2.00, max=100.00, mean=18.76
+  stringency_index (float32): 0 nulls (0.0%)  min=0.00, max=84.60, mean=41.57
+  population_density (int32): 0 nulls (0.0%)  min=25.00, max=464.00, mean=162.80
+  median_age (float32): 0 nulls (0.0%)  min=27.60, max=45.70, mean=34.70
+  aged_65_older (float32): 0 nulls (0.0%)  min=5.30, max=21.50, mean=11.78
+  gdp_per_capita (int32): 0 nulls (0.0%)  min=6427.00, max=63544.00, mean=29785.60
+  hospital_beds_per_thousand (float32): 0 nulls (0.0%)  min=0.53, max=8.00, mean=3.15
+  life_expectancy (float32): 0 nulls (0.0%)  min=64.10, max=81.30, mean=73.98
+  human_development_index (float32): 0 nulls (0.0%)  min=0.64, max=0.95, mean=0.80
+  population (int32): 0 nulls (0.0%)  min=59308690.00, max=1380004385.00, mean=413331817.00
+  icu_patients (float32): 0 nulls (0.0%)  min=0.00, max=878.00, mean=385.82
+  hosp_patients (float32): 0 nulls (0.0%)  min=0.00, max=3639.00, mean=1778.75
+  reproduction_rate (float32): 0 nulls (0.0%)  min=0.50, max=1.82, mean=1.05
+  mobility_retail (float32): 0 nulls (0.0%)  min=-60.00, max=15.00, mean=-8.06
+  mobility_grocery (float32): 0 nulls (0.0%)  min=-40.00, max=14.00, mean=-6.84
+  mobility_parks (float32): 0 nulls (0.0%)  min=-38.00, max=23.00, mean=-6.13
+  mobility_transit (float32): 0 nulls (0.0%)  min=-70.00, max=13.00, mean=-8.61
+  mobility_workplaces (float32): 0 nulls (0.0%)  min=-65.00, max=12.00, mean=-8.32
+  mobility_residential (float32): 0 nulls (0.0%)  min=-7.00, max=28.00, mean=3.68
+  zscore_daily_new_cases (float64): 0 nulls (0.0%)  min=-1.27, max=1.14, mean=-0.01
+  anomaly_daily_new_cases (bool): 0 nulls (0.0%)  unique=1
+  zscore_daily_new_deaths (float64): 0 nulls (0.0%)  min=-1.48, max=1.14, mean=-0.01
+  anomaly_daily_new_deaths (bool): 0 nulls (0.0%)  unique=1
+  zscore_cases_7day_avg (float64): 0 nulls (0.0%)  min=-1.12, max=1.10, mean=-0.01
+  anomaly_cases_7day_avg (bool): 0 nulls (0.0%)  unique=1
+  is_anomaly (bool): 0 nulls (0.0%)  unique=1
+  daily_new_cases_smoothed (float64): 0 nulls (0.0%)  min=0.00, max=76414.00, mean=12227.94
+  daily_new_deaths_smoothed (float64): 0 nulls (0.0%)  min=0.00, max=1883.00, mean=216.28
+  cases_7day_avg_smoothed (float64): 0 nulls (0.0%)  min=0.00, max=76354.29, mean=12229.93
+
+── Anomaly Summary ──
+  anomaly_daily_new_cases: 0 flagged (0.00%)
+  anomaly_daily_new_deaths: 0 flagged (0.00%)
+  anomaly_cases_7day_avg: 0 flagged (0.00%)
+  Total anomalous rows: 0 (0.00%)
+
+── Per-Country Row Counts ──
+  Brazil: 1,143 rows
+  Germany: 1,143 rows
+  India: 1,143 rows
+  South Africa: 1,143 rows
+  United States: 1,143 rows

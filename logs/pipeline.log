@@ -1,0 +1,94 @@
+23:50:55 │ INFO    │ ┌─────────────────────────────────────┐
+23:50:55 │ INFO    │ │ STEP 1/6 — LOADING DATA             │
+23:50:55 │ INFO    │ └─────────────────────────────────────┘
+23:50:55 │ INFO    │ ═══ Generating Synthetic Data ═══
+23:50:57 │ INFO    │   Synthetic JHU: 5,715 records across 5 countries
+23:50:57 │ INFO    │   Synthetic OWID: 5,715 rows × 26 cols
+23:50:57 │ INFO    │   Synthetic Mobility: 5,715 rows × 8 cols
+23:50:57 │ INFO    │   ⏱ Load: 1.84s
+23:50:57 │ INFO    │ ┌─────────────────────────────────────┐
+23:50:57 │ INFO    │ │ STEP 2/6 — TRANSFORMING JHU DATA    │
+23:50:57 │ INFO    │ └─────────────────────────────────────┘
+23:50:57 │ INFO    │ ═══ Transforming JHU: Wide → Long ═══
+23:50:57 │ INFO    │   confirmed: 5,715 rows after melt
+23:50:58 │ INFO    │   deaths: 5,715 rows after melt
+23:50:58 │ INFO    │   recovered: 5,715 rows after melt
+23:50:58 │ INFO    │ ═══ Aggregating by Country × Date ═══
+23:50:58 │ INFO    │   confirmed: 5 countries
+23:50:58 │ INFO    │   deaths: 5 countries
+23:50:58 │ INFO    │   recovered: 5 countries
+23:50:58 │ INFO    │   Merged: 5,715 rows × 5 cols
+23:50:58 │ INFO    │   Date range: 2020-01-22 00:00:00 → 2023-03-09 00:00:00
+23:50:58 │ INFO    │   Countries: 5
+23:50:58 │ INFO    │ ═══ Computing Daily Features ═══
+23:50:58 │ INFO    │   Added columns: ['daily_new_cases', 'daily_new_deaths', 'daily_new_recovered', 'cases_7day_avg', 'deaths_7day_avg', 'active_cases', 'case_fatality_rate']
+23:50:58 │ INFO    │   Target variable 'cases_7day_avg' range: 0.0 – 76354.3
+23:50:58 │ INFO    │   ⏱ Transform: 0.72s
+23:50:58 │ INFO    │ ┌─────────────────────────────────────┐
+23:50:58 │ INFO    │ │ STEP 3/6 — MERGING DATASETS         │
+23:50:58 │ INFO    │ └─────────────────────────────────────┘
+23:50:58 │ INFO    │ ═══ Merging Datasets ═══
+23:50:58 │ INFO    │ ── Preparing OWID for merge ──
+23:50:58 │ INFO    │   OWID ready: 5,715 rows, 5 countries
+23:50:58 │ INFO    │ ── Preparing Mobility for merge ──
+23:50:58 │ INFO    │   Mobility ready: 5,715 rows, 5 countries
+23:50:58 │ INFO    │   After JHU + OWID: 5,715 rows × 36 cols
+23:50:58 │ INFO    │   After + Mobility: 5,715 rows × 42 cols
+23:50:58 │ INFO    │   Coverage: 96.2% non-null
+23:50:58 │ INFO    │   Countries: 5
+23:50:58 │ INFO    │   Date range: 2020-01-22 00:00:00 → 2023-03-09 00:00:00
+23:50:58 │ INFO    │   ⏱ Merge: 0.06s
+23:50:58 │ INFO    │ ┌─────────────────────────────────────┐
+23:50:58 │ INFO    │ │ STEP 4/6 — HANDLING MISSING VALUES  │
+23:50:58 │ INFO    │ └─────────────────────────────────────┘
+23:50:58 │ INFO    │ ═══ Handling Missing Values ═══
+23:50:58 │ INFO    │   Total NaNs before: 9,160
+23:50:58 │ INFO    │     total_boosters: 2,505 (43.8%)
+23:50:58 │ INFO    │     people_fully_vaccinated: 1,605 (28.1%)
+23:50:58 │ INFO    │     total_vaccinations: 1,505 (26.3%)
+23:50:58 │ INFO    │     people_vaccinated: 1,505 (26.3%)
+23:50:58 │ INFO    │     new_vaccinations_smoothed: 1,505 (26.3%)
+23:50:58 │ INFO    │     icu_patients: 255 (4.5%)
+23:50:58 │ INFO    │     hosp_patients: 255 (4.5%)
+23:50:58 │ INFO    │     daily_new_cases: 5 (0.1%)
+23:50:58 │ INFO    │     cases_7day_avg: 5 (0.1%)
+23:50:58 │ INFO    │     daily_new_recovered: 5 (0.1%)
+23:50:58 │ INFO    │   Total NaNs after: 0
+23:50:58 │ INFO    │   Imputed: 9,160 values
+23:50:58 │ INFO    │ ═══ Optimizing Memory ═══
+23:50:58 │ INFO    │   Memory: 2.2 MB → 1.3 MB (41.5% reduction)
+23:50:58 │ INFO    │   ⏱ Clean: 0.23s
+23:50:58 │ INFO    │ ┌─────────────────────────────────────┐
+23:50:58 │ INFO    │ │ STEP 5/6 — DETECTING ANOMALIES      │
+23:50:58 │ INFO    │ └─────────────────────────────────────┘
+23:50:58 │ INFO    │ ═══ Detecting Anomalies ═══
+23:50:58 │ INFO    │   daily_new_cases: 0 anomalies (0.00%)
+23:50:58 │ INFO    │   daily_new_deaths: 0 anomalies (0.00%)
+23:50:58 │ INFO    │   cases_7day_avg: 0 anomalies (0.00%)
+23:50:58 │ INFO    │   Total anomalous rows: 0 (0.00%)
+23:50:58 │ INFO    │ ═══ Smoothing Isolated Spikes ═══
+23:50:58 │ INFO    │   daily_new_cases: smoothed 0 values
+23:50:58 │ INFO    │   daily_new_deaths: smoothed 0 values
+23:50:58 │ INFO    │   Recomputed cases_7day_avg_smoothed on cleaned data
+23:50:58 │ INFO    │   Total smoothed values: 0
+23:50:58 │ INFO    │   ⏱ Anomaly: 0.06s
+23:50:58 │ INFO    │ ┌─────────────────────────────────────┐
+23:50:58 │ INFO    │ │ STEP 6/6 — EXPORTING RESULTS        │
+23:50:58 │ INFO    │ └─────────────────────────────────────┘
+23:50:58 │ INFO    │ ═══ Exporting Master Dataset ═══
+23:50:58 │ INFO    │ ── Validating temporal order ──
+23:50:58 │ INFO    │   ✓ Temporal order validated — no leakage
+23:50:58 │ INFO    │   ✓ CSV: master_dataset.csv (2.1 MB)
+23:50:59 │ INFO    │   ✓ Parquet: master_dataset.parquet (0.5 MB)
+23:50:59 │ INFO    │   Size ratio: Parquet is 4.3x smaller than CSV
+23:50:59 │ INFO    │ ── Generating Data Quality Report ──
+23:50:59 │ INFO    │   ✓ Quality report saved: data_quality_report.txt
+23:50:59 │ INFO    │ ═══ Exporting Per-Country Datasets ═══
+23:50:59 │ INFO    │   ✓ United States: 1,143 rows × 52 cols (0.4 MB csv, 0.2 MB parquet)
+23:50:59 │ INFO    │   ✓ India: 1,143 rows × 52 cols (0.4 MB csv, 0.2 MB parquet)
+23:50:59 │ INFO    │   ✓ Brazil: 1,143 rows × 52 cols (0.4 MB csv, 0.2 MB parquet)
+23:50:59 │ INFO    │   ✓ Germany: 1,143 rows × 52 cols (0.4 MB csv, 0.2 MB parquet)
+23:50:59 │ INFO    │   ✓ South Africa: 1,143 rows × 52 cols (0.4 MB csv, 0.2 MB parquet)
+23:50:59 │ INFO    │   Country datasets saved to: D:\Hackthon Projects\CodeCure\data\output\countries
+23:50:59 │ INFO    │   ⏱ Export: 1.34s
+23:50:59 │ INFO    │ Pipeline completed in 4.26s

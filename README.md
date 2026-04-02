@@ -1,0 +1,176 @@
+# 🦠 Epidemic Spread Prediction & Decision Support System
+
+An end-to-end AI-powered system for forecasting epidemic outbreaks, analyzing transmission dynamics, and generating actionable public health insights.
+
+---
+
+## 📌 Problem Statement
+
+Epidemic outbreaks evolve rapidly, making it difficult for authorities to anticipate future trends and take timely action. Traditional analysis focuses on historical data but lacks predictive and decision-support capabilities.
+
+This project addresses that gap by combining **machine learning, epidemiological modeling, and interactive visualization** to forecast outbreaks and provide actionable insights.
+
+---
+
+## 🎯 Key Features
+
+* 📈 **Outbreak Forecasting**
+
+  * ARIMA (statistical baseline)
+  * LSTM (deep learning model for high accuracy)
+
+* 🧬 **Biological Modeling**
+
+  * SEIR compartmental model
+  * Effective reproduction number (Rt) analysis
+  * Herd immunity threshold estimation
+
+* 🌍 **Interactive Dashboard**
+
+  * Country-wise case trends
+  * 7–14 day forecasts
+  * Model comparison (ARIMA vs LSTM)
+
+* 🗺️ **Risk Map**
+
+  * Global outbreak risk visualization
+  * Country-level risk scoring
+
+* 🚨 **Early Warning System**
+
+  * Threshold-based alerts (Critical / Warning / Safe)
+
+* 🔮 **What-if Simulator**
+
+  * Policy impact simulation (lockdown, vaccination)
+
+* 🧠 **Model Explainability**
+
+  * SHAP-based feature importance
+
+* 📄 **Auto Report Generator**
+
+  * Downloadable PDF summary for decision-makers
+
+---
+
+## 🧠 Approach
+
+### 1. Data Pipeline
+
+* Johns Hopkins COVID-19 dataset
+* Our World in Data (OWID)
+* Google Mobility data
+
+### 2. Feature Engineering
+
+* Lag features, rolling statistics
+* Growth rate, doubling time, Rt
+* Mobility-based leading indicators
+
+### 3. Modeling
+
+* **ARIMA** → baseline time-series forecasting
+* **LSTM** → captures non-linear epidemic dynamics
+* **SEIR** → validates results biologically
+
+### 4. Visualization
+
+* Streamlit dashboard
+* Plotly interactive charts
+* Folium risk maps
+
+---
+
+## 📊 Results
+
+* Achieved accurate 7–14 day forecasts
+* LSTM outperformed ARIMA in capturing non-linear trends
+* Rt analysis successfully identified outbreak waves
+* SEIR model validated epidemic behavior biologically
+
+---
+
+## 🏗️ Project Structure
+
+```
+project/
+│
+├── app.py
+├── requirements.txt
+├── data/
+├── models/
+├── src/
+├── outputs/
+└── notebooks/
+```
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+---
+
+## 🌐 Live Demo
+
+👉 https://your-app.streamlit.app
+
+---
+
+## 📸 Screenshots
+
+(Add dashboard + map screenshots here)
+
+---
+
+## 💡 Key Insights
+
+* Rt > 1 indicates outbreak growth phase
+* Mobility changes act as leading indicators
+* Vaccination reduces susceptible population (SEIR validation)
+* Policy interventions significantly impact future trends
+
+---
+
+## 🚀 Future Improvements
+
+* Real-time data integration
+* More granular (state-level) predictions
+* Advanced hybrid models (ARIMA + LSTM ensemble)
+* Integration with healthcare systems
+
+---
+
+## 👩‍💻 Tech Stack
+
+* Python, Pandas, NumPy
+* TensorFlow / Keras (PyTorch)
+* Statsmodels (ARIMA)
+* Streamlit
+* Plotly, Folium
+* SHAP
+
+---
+
+## 🏆 Hackathon Impact
+
+This project goes beyond prediction by providing **actionable insights** and **biologically meaningful interpretations**, enabling data-driven decision-making in public health.
+
+---
+
+## 👥 Team
+
+* Kritika Mandale
+
+---
+
+## 📜 License
+
+MIT License

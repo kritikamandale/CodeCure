@@ -1,0 +1,25 @@
+{
+  "model_type": "SARIMAX",
+  "country": "United States",
+  "target": "confirmed",
+  "order_pdq": [
+    2,
+    0,
+    1
+  ],
+  "seasonal_order_PDQm": [
+    0,
+    0,
+    0,
+    7
+  ],
+  "aic": 19340.70229896468,
+  "bic": 19365.909357283654,
+  "metrics": {
+    "RMSE": 1368395.6221,
+    "MAE": 1055100.3199,
+    "MAPE": 7.5362
+  },
+  "n_parameters": 5,
+  "timestamp": "2026-04-02T01:10:38.145163"
+}

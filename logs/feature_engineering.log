@@ -1,0 +1,78 @@
+00:31:55 | INFO    | Loading master dataset from master_dataset.parquet
+00:31:55 | INFO    |   Loaded: 5,715 rows x 52 cols
+00:31:55 | INFO    | ============================================================
+00:31:55 | INFO    |   FEATURE ENGINEERING PIPELINE
+00:31:55 | INFO    | ============================================================
+00:31:55 | INFO    | ── [1/5] Temporal Features ──
+00:31:55 | INFO    |     Added 8 temporal features
+00:31:55 | INFO    | ── [2/5] Lag Features ──
+00:31:55 | INFO    |     Added 6 lag features
+00:31:55 | INFO    | ── [3/5] Rolling Features ──
+00:31:55 | INFO    |     Added 8 rolling features
+00:31:55 | INFO    | ── [4/5] Epidemiological Features ──
+00:31:55 | INFO    |     Added 8 epidemiological features
+00:31:55 | INFO    | ── [5/5] Mobility Features (7-day lag) ──
+00:31:55 | INFO    |     Added 7 lagged mobility features
+00:31:55 | INFO    | ── Post-processing: handling NaNs ──
+00:31:55 | INFO    |     NaNs: 7,140 -> 0
+00:31:55 | INFO    | ── Post-processing: optimizing dtypes ──
+00:31:55 | INFO    |     Memory: 2.4 MB -> 2.3 MB
+00:31:55 | INFO    | 
+00:31:55 | INFO    | ============================================================
+00:31:55 | INFO    |   FEATURE ENGINEERING COMPLETE
+00:31:55 | INFO    |   Time: 0.16s
+00:31:55 | INFO    |   New features: 37
+00:31:55 | INFO    |   Total columns: 89
+00:31:55 | INFO    |   Shape: 5,715 x 89
+00:31:55 | INFO    | ------------------------------------------------------------
+00:31:55 | INFO    |   temporal: 8 features
+00:31:55 | INFO    |       day_of_week_sin
+00:31:55 | INFO    |       day_of_week_cos
+00:31:55 | INFO    |       month_sin
+00:31:55 | INFO    |       month_cos
+00:31:55 | INFO    |       day_of_year_sin
+00:31:55 | INFO    |       day_of_year_cos
+00:31:55 | INFO    |       days_since_outbreak
+00:31:55 | INFO    |       is_weekend
+00:31:55 | INFO    |   lag: 6 features
+00:31:55 | INFO    |       lag_1
+00:31:55 | INFO    |       lag_3
+00:31:55 | INFO    |       lag_7
+00:31:55 | INFO    |       lag_14
+00:31:55 | INFO    |       lag_1_deaths
+00:31:55 | INFO    |       lag_7_deaths
+00:31:55 | INFO    |   rolling: 8 features
+00:31:55 | INFO    |       rolling_mean_7
+00:31:55 | INFO    |       rolling_std_7
+00:31:55 | INFO    |       rolling_max_7
+00:31:55 | INFO    |       rolling_mean_14
+00:31:55 | INFO    |       rolling_std_14
+00:31:55 | INFO    |       rolling_mean_21
+00:31:55 | INFO    |       rolling_change_7
+00:31:55 | INFO    |       ewm_mean_7
+00:31:55 | INFO    |   epidemiological: 8 features
+00:31:55 | INFO    |       growth_rate
+00:31:55 | INFO    |       growth_rate_7d
+00:31:55 | INFO    |       doubling_time
+00:31:55 | INFO    |       cfr
+00:31:55 | INFO    |       recovery_rate
+00:31:55 | INFO    |       rt_estimate
+00:31:55 | INFO    |       active_ratio
+00:31:55 | INFO    |       cases_per_million
+00:31:55 | INFO    |   mobility_lagged: 7 features
+00:31:55 | INFO    |       mobility_retail_lag7
+00:31:55 | INFO    |       mobility_grocery_lag7
+00:31:55 | INFO    |       mobility_parks_lag7
+00:31:55 | INFO    |       mobility_transit_lag7
+00:31:55 | INFO    |       mobility_workplaces_lag7
+00:31:55 | INFO    |       mobility_residential_lag7
+00:31:55 | INFO    |       mobility_composite_lag7
+00:31:55 | INFO    | ============================================================
+00:31:55 | INFO    |   Saved: feature_matrix.parquet (0.7 MB)
+00:31:56 | INFO    |   Saved: feature_matrix.csv (3.5 MB)
+00:31:56 | INFO    | Exporting per-country feature matrices...
+00:31:56 | INFO    |     United States: 1,143 rows x 89 cols
+00:31:56 | INFO    |     India: 1,143 rows x 89 cols
+00:31:56 | INFO    |     Brazil: 1,143 rows x 89 cols
+00:31:56 | INFO    |     Germany: 1,143 rows x 89 cols
+00:31:56 | INFO    |     South Africa: 1,143 rows x 89 cols

@@ -1,0 +1,130 @@
+{
+  "target": "cases_7day_avg",
+  "n_features": 12,
+  "selected_features": [
+    "mobility_residential",
+    "mobility_residential_lag7",
+    "mobility_parks",
+    "mobility_parks_lag7",
+    "cases_per_million",
+    "active_cases",
+    "mobility_retail_lag7",
+    "mobility_workplaces_lag7",
+    "mobility_transit_lag7",
+    "mobility_composite_lag7",
+    "total_vaccinations",
+    "people_vaccinated"
+  ],
+  "feature_details": {
+    "mobility_residential": {
+      "correlation": 0.2478,
+      "vif": 9.57
+    },
+    "mobility_residential_lag7": {
+      "correlation": 0.2598,
+      "vif": 9.51
+    },
+    "mobility_parks": {
+      "correlation": 0.4412,
+      "vif": 4.48
+    },
+    "mobility_parks_lag7": {
+      "correlation": 0.4227,
+      "vif": 4.35
+    },
+    "cases_per_million": {
+      "correlation": 0.7318,
+      "vif": 2.28
+    },
+    "active_cases": {
+      "correlation": 0.2808,
+      "vif": 1.99
+    },
+    "mobility_retail_lag7": {
+      "correlation": 0.2569,
+      "vif": -23665812122498.31
+    },
+    "mobility_workplaces_lag7": {
+      "correlation": 0.2102,
+      "vif": -27218421765888.34
+    },
+    "mobility_transit_lag7": {
+      "correlation": 0.2256,
+      "vif": -29255727430682.27
+    },
+    "mobility_composite_lag7": {
+      "correlation": 0.2342,
+      "vif": -231957934611587.03
+    },
+    "total_vaccinations": {
+      "correlation": 0.4626,
+      "vif": -700008878134768.4
+    },
+    "people_vaccinated": {
+      "correlation": 0.4626,
+      "vif": -700013255796819.9
+    }
+  },
+  "stationarity_tests": {
+    "United States": {
+      "adf_statistic": -1.9871,
+      "p_value": 0.292264,
+      "used_lag": 30,
+      "stationary": "False",
+      "critical_values": {
+        "1%": -3.4362,
+        "5%": -2.8641,
+        "10%": -2.5682
+      }
+    },
+    "India": {
+      "adf_statistic": -1.9871,
+      "p_value": 0.292264,
+      "used_lag": 30,
+      "stationary": "False",
+      "critical_values": {
+        "1%": -3.4362,
+        "5%": -2.8641,
+        "10%": -2.5682
+      }
+    },
+    "Brazil": {
+      "adf_statistic": -1.9871,
+      "p_value": 0.292264,
+      "used_lag": 30,
+      "stationary": "False",
+      "critical_values": {
+        "1%": -3.4362,
+        "5%": -2.8641,
+        "10%": -2.5682
+      }
+    },
+    "Germany": {
+      "adf_statistic": -1.9871,
+      "p_value": 0.292264,
+      "used_lag": 30,
+      "stationary": "False",
+      "critical_values": {
+        "1%": -3.4362,
+        "5%": -2.8641,
+        "10%": -2.5682
+      }
+    },
+    "South Africa": {
+      "adf_statistic": -1.9871,
+      "p_value": 0.292264,
+      "used_lag": 30,
+      "stationary": "False",
+      "critical_values": {
+        "1%": -3.4362,
+        "5%": -2.8641,
+        "10%": -2.5682
+      }
+    }
+  },
+  "selection_criteria": {
+    "min_correlation": 0.15,
+    "max_vif": 10.0,
+    "method": "correlation_filter + VIF_multicollinearity_check"
+  }
+}

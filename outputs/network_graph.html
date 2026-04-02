@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #1a1a2e;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "white"}, "group": 1, "id": "US", "label": "US", "shape": "dot", "size": 50, "title": "Country: US\u003cbr\u003eTotal Historic Cases: 103,802,702"}, {"font": {"color": "white"}, "group": 1, "id": "Spain", "label": "Spain", "shape": "dot", "size": 30, "title": "Country: Spain\u003cbr\u003eTotal Historic Cases: 13,770,429"}, {"font": {"color": "white"}, "group": 1, "id": "Canada", "label": "Canada", "shape": "dot", "size": 19, "title": "Country: Canada\u003cbr\u003eTotal Historic Cases: 4,617,095"}, {"font": {"color": "white"}, "group": 1, "id": "France", "label": "France", "shape": "dot", "size": 40, "title": "Country: France\u003cbr\u003eTotal Historic Cases: 39,866,718"}, {"font": {"color": "white"}, "group": 1, "id": "Italy", "label": "Italy", "shape": "dot", "size": 36, "title": "Country: Italy\u003cbr\u003eTotal Historic Cases: 25,603,510"}, {"font": {"color": "white"}, "group": 1, "id": "Israel", "label": "Israel", "shape": "dot", "size": 19, "title": "Country: Israel\u003cbr\u003eTotal Historic Cases: 4,803,824"}, {"font": {"color": "white"}, "group": 1, "id": "Belgium", "label": "Belgium", "shape": "dot", "size": 19, "title": "Country: Belgium\u003cbr\u003eTotal Historic Cases: 4,739,365"}, {"font": {"color": "white"}, "group": 1, "id": "Switzerland", "label": "Switzerland", "shape": "dot", "size": 19, "title": "Country: Switzerland\u003cbr\u003eTotal Historic Cases: 4,413,911"}, {"font": {"color": "white"}, "group": 1, "id": "Germany", "label": "Germany", "shape": "dot", "size": 40, "title": "Country: Germany\u003cbr\u003eTotal Historic Cases: 38,249,060"}, {"font": {"color": "white"}, "group": 1, "id": "Austria", "label": "Austria", "shape": "dot", "size": 22, "title": "Country: Austria\u003cbr\u003eTotal Historic Cases: 5,961,143"}, {"font": {"color": "white"}, "group": 1, "id": "Korea, South", "label": "Korea, South", "shape": "dot", "size": 38, "title": "Country: Korea, South\u003cbr\u003eTotal Historic Cases: 30,615,522"}, {"font": {"color": "white"}, "group": 1, "id": "Vietnam", "label": "Vietnam", "shape": "dot", "size": 28, "title": "Country: Vietnam\u003cbr\u003eTotal Historic Cases: 11,526,994"}, {"font": {"color": "white"}, "group": 1, "id": "New Zealand", "label": "New Zealand", "shape": "dot", "size": 12, "title": "Country: New Zealand\u003cbr\u003eTotal Historic Cases: 2,236,114"}, {"font": {"color": "white"}, "group": 1, "id": "Australia", "label": "Australia", "shape": "dot", "size": 28, "title": "Country: Australia\u003cbr\u003eTotal Historic Cases: 11,399,460"}, {"font": {"color": "white"}, "group": 1, "id": "Russia", "label": "Russia", "shape": "dot", "size": 34, "title": "Country: Russia\u003cbr\u003eTotal Historic Cases: 22,075,858"}, {"font": {"color": "white"}, "group": 1, "id": "Georgia", "label": "Georgia", "shape": "dot", "size": 10, "title": "Country: Georgia\u003cbr\u003eTotal Historic Cases: 1,827,537"}, {"font": {"color": "white"}, "group": 1, "id": "Argentina", "label": "Argentina", "shape": "dot", "size": 27, "title": "Country: Argentina\u003cbr\u003eTotal Historic Cases: 10,044,957"}, {"font": {"color": "white"}, "group": 1, "id": "Netherlands", "label": "Netherlands", "shape": "dot", "size": 25, "title": "Country: Netherlands\u003cbr\u003eTotal Historic Cases: 8,712,835"}, {"font": {"color": "white"}, "group": 1, "id": "Denmark", "label": "Denmark", "shape": "dot", "size": 16, "title": "Country: Denmark\u003cbr\u003eTotal Historic Cases: 3,451,036"}, {"font": {"color": "white"}, "group": 1, "id": "Slovakia", "label": "Slovakia", "shape": "dot", "size": 14, "title": "Country: Slovakia\u003cbr\u003eTotal Historic Cases: 2,667,551"}, {"font": {"color": "white"}, "group": 1, "id": "Poland", "label": "Poland", "shape": "dot", "size": 22, "title": "Country: Poland\u003cbr\u003eTotal Historic Cases: 6,444,960"}, {"font": {"color": "white"}, "group": 1, "id": "Czechia", "label": "Czechia", "shape": "dot", "size": 19, "title": "Country: Czechia\u003cbr\u003eTotal Historic Cases: 4,618,256"}, {"font": {"color": "white"}, "group": 1, "id": "Hungary", "label": "Hungary", "shape": "dot", "size": 12, "title": "Country: Hungary\u003cbr\u003eTotal Historic Cases: 2,196,804"}, {"font": {"color": "white"}, "group": 1, "id": "Jordan", "label": "Jordan", "shape": "dot", "size": 10, "title": "Country: Jordan\u003cbr\u003eTotal Historic Cases: 1,746,997"}, {"font": {"color": "white"}, "group": 1, "id": "Portugal", "label": "Portugal", "shape": "dot", "size": 21, "title": "Country: Portugal\u003cbr\u003eTotal Historic Cases: 5,570,473"}, {"font": {"color": "white"}, "group": 1, "id": "Malaysia", "label": "Malaysia", "shape": "dot", "size": 20, "title": "Country: Malaysia\u003cbr\u003eTotal Historic Cases: 5,044,718"}, {"font": {"color": "white"}, "group": 1, "id": "Thailand", "label": "Thailand", "shape": "dot", "size": 19, "title": "Country: Thailand\u003cbr\u003eTotal Historic Cases: 4,728,182"}, {"font": {"color": "white"}, "group": 1, "id": "Sweden", "label": "Sweden", "shape": "dot", "size": 14, "title": "Country: Sweden\u003cbr\u003eTotal Historic Cases: 2,699,339"}, {"font": {"color": "white"}, "group": 1, "id": "Romania", "label": "Romania", "shape": "dot", "size": 16, "title": "Country: Romania\u003cbr\u003eTotal Historic Cases: 3,346,046"}, {"font": {"color": "white"}, "group": 1, "id": "Serbia", "label": "Serbia", "shape": "dot", "size": 13, "title": "Country: Serbia\u003cbr\u003eTotal Historic Cases: 2,500,142"}, {"font": {"color": "white"}, "group": 1, "id": "India", "label": "India", "shape": "dot", "size": 41.74727385355446, "title": "Country: India\u003cbr\u003eTotal Historic Cases: 44,690,738"}, {"font": {"color": "white"}, "group": 1, "id": "Brazil", "label": "Brazil", "shape": "dot", "size": 39.918009818959156, "title": "Country: Brazil\u003cbr\u003eTotal Historic Cases: 37,076,053"}, {"font": {"color": "white"}, "group": 1, "id": "Japan", "label": "Japan", "shape": "dot", "size": 38.87212524008012, "title": "Country: Japan\u003cbr\u003eTotal Historic Cases: 33,320,438"}, {"font": {"color": "white"}, "group": 1, "id": "United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 35.924062012370655, "title": "Country: United Kingdom\u003cbr\u003eTotal Historic Cases: 24,658,705"}, {"font": {"color": "white"}, "group": 1, "id": "Turkey", "label": "Turkey", "shape": "dot", "size": 32.30650009271628, "title": "Country: Turkey\u003cbr\u003eTotal Historic Cases: 17,042,722"}, {"font": {"color": "white"}, "group": 1, "id": "Taiwan*", "label": "Taiwan*", "shape": "dot", "size": 27.05703087052627, "title": "Country: Taiwan*\u003cbr\u003eTotal Historic Cases: 9,970,937"}, {"font": {"color": "white"}, "group": 1, "id": "Iran", "label": "Iran", "shape": "dot", "size": 24.362258427148298, "title": "Country: Iran\u003cbr\u003eTotal Historic Cases: 7,572,311"}, {"font": {"color": "white"}, "group": 1, "id": "Mexico", "label": "Mexico", "shape": "dot", "size": 24.246651421819884, "title": "Country: Mexico\u003cbr\u003eTotal Historic Cases: 7,483,444"}, {"font": {"color": "white"}, "group": 1, "id": "Indonesia", "label": "Indonesia", "shape": "dot", "size": 23.219410188943748, "title": "Country: Indonesia\u003cbr\u003eTotal Historic Cases: 6,738,225"}, {"font": {"color": "white"}, "group": 1, "id": "Colombia", "label": "Colombia", "shape": "dot", "size": 22.652295968339246, "title": "Country: Colombia\u003cbr\u003eTotal Historic Cases: 6,359,093"}, {"font": {"color": "white"}, "group": 1, "id": "Ukraine", "label": "Ukraine", "shape": "dot", "size": 21.601234665123034, "title": "Country: Ukraine\u003cbr\u003eTotal Historic Cases: 5,711,929"}, {"font": {"color": "white"}, "group": 1, "id": "Greece", "label": "Greece", "shape": "dot", "size": 21.31693205807536, "title": "Country: Greece\u003cbr\u003eTotal Historic Cases: 5,548,487"}, {"font": {"color": "white"}, "group": 1, "id": "Chile", "label": "Chile", "shape": "dot", "size": 20.667161557437094, "title": "Country: Chile\u003cbr\u003eTotal Historic Cases: 5,192,286"}, {"font": {"color": "white"}, "group": 1, "id": "China", "label": "China", "shape": "dot", "size": 20.1068127614316, "title": "Country: China\u003cbr\u003eTotal Historic Cases: 4,903,524"}, {"font": {"color": "white"}, "group": 1, "id": "Peru", "label": "Peru", "shape": "dot", "size": 19.238706251278245, "title": "Country: Peru\u003cbr\u003eTotal Historic Cases: 4,487,553"}, {"font": {"color": "white"}, "group": 1, "id": "Philippines", "label": "Philippines", "shape": "dot", "size": 18.300201431134013, "title": "Country: Philippines\u003cbr\u003eTotal Historic Cases: 4,077,452"}, {"font": {"color": "white"}, "group": 1, "id": "South Africa", "label": "South Africa", "shape": "dot", "size": 18.275227760838824, "title": "Country: South Africa\u003cbr\u003eTotal Historic Cases: 4,067,067"}, {"font": {"color": "white"}, "group": 1, "id": "Iraq", "label": "Iraq", "shape": "dot", "size": 13.373794031832565, "title": "Country: Iraq\u003cbr\u003eTotal Historic Cases: 2,465,545"}, {"font": {"color": "white"}, "group": 1, "id": "Singapore", "label": "Singapore", "shape": "dot", "size": 12.413697683576341, "title": "Country: Singapore\u003cbr\u003eTotal Historic Cases: 2,235,294"}, {"font": {"color": "white"}, "group": 1, "id": "Bangladesh", "label": "Bangladesh", "shape": "dot", "size": 11.50817704606788, "title": "Country: Bangladesh\u003cbr\u003eTotal Historic Cases: 2,037,871"}]);
+                  edges = new vis.DataSet([{"from": "US", "title": "Correlation Match: 90.2%", "to": "Spain", "value": 90.16731826008194, "width": 1.787997966436594}, {"from": "US", "title": "Correlation Match: 85.5%", "to": "Canada", "value": 85.49012806126836, "width": 1.3699385690864747}, {"from": "France", "title": "Correlation Match: 95.5%", "to": "Italy", "value": 95.52040628564691, "width": 2.385624354527575}, {"from": "France", "title": "Correlation Match: 86.7%", "to": "Spain", "value": 86.68033446256014, "width": 1.4679935478424992}, {"from": "France", "title": "Correlation Match: 86.4%", "to": "Israel", "value": 86.41336414510849, "width": 1.4455257063122466}, {"from": "France", "title": "Correlation Match: 87.0%", "to": "Belgium", "value": 86.98918298817641, "width": 1.4943334371879533}, {"from": "France", "title": "Correlation Match: 86.8%", "to": "Switzerland", "value": 86.76461997958413, "width": 1.4751446193237934}, {"from": "Germany", "title": "Correlation Match: 94.5%", "to": "Austria", "value": 94.49822084427775, "width": 2.2606816777268413}, {"from": "Korea, South", "title": "Correlation Match: 88.8%", "to": "Vietnam", "value": 88.80218411643531, "width": 1.6566832918879593}, {"from": "Korea, South", "title": "Correlation Match: 85.5%", "to": "New Zealand", "value": 85.49755603515075, "width": 1.370533821228198}, {"from": "Italy", "title": "Correlation Match: 86.8%", "to": "Australia", "value": 86.82965125523685, "width": 1.480681118344009}, {"from": "Russia", "title": "Correlation Match: 87.5%", "to": "Georgia", "value": 87.50502541911831, "width": 1.539168728663384}, {"from": "Spain", "title": "Correlation Match: 86.4%", "to": "Argentina", "value": 86.35646086827661, "width": 1.44077257053394}, {"from": "Spain", "title": "Correlation Match: 85.6%", "to": "Canada", "value": 85.58640070915973, "width": 1.3776695782278798}, {"from": "Netherlands", "title": "Correlation Match: 90.8%", "to": "Switzerland", "value": 90.84882172343795, "width": 1.856597451210471}, {"from": "Netherlands", "title": "Correlation Match: 90.1%", "to": "Denmark", "value": 90.0690043470699, "width": 1.7782714844232363}, {"from": "Netherlands", "title": "Correlation Match: 87.3%", "to": "Slovakia", "value": 87.28315888689356, "width": 1.5197548301456192}, {"from": "Poland", "title": "Correlation Match: 88.9%", "to": "Czechia", "value": 88.94336228955326, "width": 1.669894249328846}, {"from": "Poland", "title": "Correlation Match: 94.8%", "to": "Hungary", "value": 94.84545097667181, "width": 2.3025219770560645}, {"from": "Poland", "title": "Correlation Match: 89.2%", "to": "Jordan", "value": 89.20738087816453, "width": 1.694826313882134}, {"from": "Portugal", "title": "Correlation Match: 85.5%", "to": "Israel", "value": 85.52376814550819, "width": 1.3726360227375944}, {"from": "Malaysia", "title": "Correlation Match: 89.7%", "to": "Thailand", "value": 89.67602941450983, "width": 1.7398151508714617}, {"from": "Israel", "title": "Correlation Match: 85.0%", "to": "Denmark", "value": 85.0130024466464, "width": 1.3321343527884422}, {"from": "Israel", "title": "Correlation Match: 89.7%", "to": "Sweden", "value": 89.72211892449523, "width": 1.7442906888741279}, {"from": "Belgium", "title": "Correlation Match: 85.2%", "to": "Czechia", "value": 85.2048013513856, "width": 1.34722953755782}, {"from": "Czechia", "title": "Correlation Match: 86.4%", "to": "Slovakia", "value": 86.3623970058196, "width": 1.4412678316849492}, {"from": "Czechia", "title": "Correlation Match: 89.1%", "to": "Hungary", "value": 89.10920731743617, "width": 1.6855209562976263}, {"from": "Switzerland", "title": "Correlation Match: 87.9%", "to": "Denmark", "value": 87.92776851790386, "width": 1.5767088754590166}, {"from": "Denmark", "title": "Correlation Match: 86.7%", "to": "Georgia", "value": 86.66265118639632, "width": 1.4664967639354716}, {"from": "Romania", "title": "Correlation Match: 89.2%", "to": "Serbia", "value": 89.19138458205057, "width": 1.6933073127517306}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "repulsion": {
+            "centralGravity": 0.1,
+            "damping": 0.9,
+            "nodeDistance": 150,
+            "springConstant": 0.05,
+            "springLength": 150
+        },
+        "solver": "repulsion",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
