@@ -162,13 +162,13 @@ streamlit run app.py
 * SHAP
 ---
 
-## 👥 Team
+## Team
 
 * Kritika Mandale
 * Shreya Shande
 
 ---
 
-## 📜 License
+##License
 
 MIT License
