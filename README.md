@@ -48,13 +48,13 @@ This project addresses that gap by combining **machine learning, epidemiological
 
   * SHAP-based feature importance
 
-* 📄 **Auto Report Generator**
+* **Auto Report Generator**
 
   * Downloadable PDF summary for decision-makers
 
 ---
 
-## 🧠 Approach
+## Approach
 
 ### 1. Data Pipeline
 
@@ -82,7 +82,7 @@ This project addresses that gap by combining **machine learning, epidemiological
 
 ---
 
-## 📊 Results
+## Results
 
 * Achieved accurate 7–14 day forecasts
 * LSTM outperformed ARIMA in capturing non-linear trends
@@ -91,7 +91,7 @@ This project addresses that gap by combining **machine learning, epidemiological
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 project/
@@ -107,7 +107,7 @@ project/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ```bash
 git clone https://github.com/your-username/your-repo.git
@@ -118,13 +118,13 @@ streamlit run app.py
 
 ---
 
-## 🌐 Live Demo
+## Live Demo
 
 👉 https://codecuree.streamlit.app
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 <img width="1914" height="844" alt="image" src="https://github.com/user-attachments/assets/9906a5c3-d66f-4116-8b27-140301254fb1" />
 <img width="1919" height="777" alt="image" src="https://github.com/user-attachments/assets/51266a54-916c-4848-b214-63abfe5acbe5" />
@@ -134,7 +134,7 @@ streamlit run app.py
 
 ---
 
-## 💡 Key Insights
+## Key Insights
 
 * Rt > 1 indicates outbreak growth phase
 * Mobility changes act as leading indicators
@@ -143,7 +143,7 @@ streamlit run app.py
 
 ---
 
-## 🚀 Future Improvements
+## Future Improvements
 
 * Real-time data integration
 * More granular (state-level) predictions
@@ -152,7 +152,7 @@ streamlit run app.py
 
 ---
 
-## 👩‍💻 Tech Stack
+## Tech Stack
 
 * Python, Pandas, NumPy
 * TensorFlow / Keras (PyTorch)
@@ -160,13 +160,6 @@ streamlit run app.py
 * Streamlit
 * Plotly, Folium
 * SHAP
-
----
-
-## 🏆 Hackathon Impact
-
-This project goes beyond prediction by providing **actionable insights** and **biologically meaningful interpretations**, enabling data-driven decision-making in public health.
-
 ---
 
 ## 👥 Team
