@@ -1,10 +1,10 @@
-# 🦠 Epidemic Spread Prediction & Decision Support System
+# Epidemic Spread Prediction & Decision Support System
 
 An end-to-end AI-powered system for forecasting epidemic outbreaks, analyzing transmission dynamics, and generating actionable public health insights.
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 Epidemic outbreaks evolve rapidly, making it difficult for authorities to anticipate future trends and take timely action. Traditional analysis focuses on historical data but lacks predictive and decision-support capabilities.
 
@@ -12,39 +12,39 @@ This project addresses that gap by combining **machine learning, epidemiological
 
 ---
 
-## 🎯 Key Features
+## Key Features
 
-* 📈 **Outbreak Forecasting**
+* **Outbreak Forecasting**
 
   * ARIMA (statistical baseline)
   * LSTM (deep learning model for high accuracy)
 
-* 🧬 **Biological Modeling**
+* **Biological Modeling**
 
   * SEIR compartmental model
   * Effective reproduction number (Rt) analysis
   * Herd immunity threshold estimation
 
-* 🌍 **Interactive Dashboard**
+* **Interactive Dashboard**
 
   * Country-wise case trends
   * 7–14 day forecasts
   * Model comparison (ARIMA vs LSTM)
 
-* 🗺️ **Risk Map**
+* **Risk Map**
 
   * Global outbreak risk visualization
   * Country-level risk scoring
 
-* 🚨 **Early Warning System**
+* **Early Warning System**
 
   * Threshold-based alerts (Critical / Warning / Safe)
 
-* 🔮 **What-if Simulator**
+* **What-if Simulator**
 
   * Policy impact simulation (lockdown, vaccination)
 
-* 🧠 **Model Explainability**
+* **Model Explainability**
 
   * SHAP-based feature importance
 
