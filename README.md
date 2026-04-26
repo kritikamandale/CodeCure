@@ -148,7 +148,6 @@ streamlit run app.py
 * Real-time data integration
 * More granular (state-level) predictions
 * Advanced hybrid models (ARIMA + LSTM ensemble)
-* Integration with healthcare systems
 
 ---
 
