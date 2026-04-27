@@ -15,7 +15,6 @@ This project addresses that gap by combining **machine learning, epidemiological
 ## Key Features
 
 * **Outbreak Forecasting**
-
   * ARIMA (statistical baseline)
   * LSTM (deep learning model for high accuracy)
 
@@ -26,7 +25,6 @@ This project addresses that gap by combining **machine learning, epidemiological
   * Herd immunity threshold estimation
 
 * **Interactive Dashboard**
-
   * Country-wise case trends
   * 7–14 day forecasts
   * Model comparison (ARIMA vs LSTM)
@@ -55,7 +53,6 @@ This project addresses that gap by combining **machine learning, epidemiological
 ---
 
 ## Approach
-
 ### 1. Data Pipeline
 
 * Johns Hopkins COVID-19 dataset
@@ -83,7 +80,6 @@ This project addresses that gap by combining **machine learning, epidemiological
 ---
 
 ## Results
-
 * Achieved accurate 7–14 day forecasts
 * LSTM outperformed ARIMA in capturing non-linear trends
 * Rt analysis successfully identified outbreak waves
