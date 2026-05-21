@@ -80,7 +80,7 @@ This project addresses that gap by combining **machine learning, epidemiological
 ---
 
 ## Results
-* Achieved accurate 7–14 day forecasts
+* Achieved best accuracy 
 * LSTM outperformed ARIMA in capturing non-linear trends
 * Rt analysis successfully identified outbreak waves
 * SEIR model validated epidemic behavior biologically
